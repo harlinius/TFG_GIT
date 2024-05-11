@@ -5,7 +5,7 @@ require_once '../bd/bd.php';
 session_start();
 
 $tituloPagina = "Read&Meet | Login";
-require_once "../include/cabecera_login.php";
+require_once "../include/cabecera_registro.php";
 ?>
 
 <div id="bloque_form" class="row">
@@ -37,57 +37,15 @@ require_once "../include/cabecera_login.php";
                 <input type="password" id="pwd" name="pwd" class="form-control" placeholder="" />
             </div>
             <div class="mb-3 text-center">
-                <a href="crearCuenta.php" class="btn btn-secondary">Crear cuenta</a>
+                <a href="login.php" class="btn btn-secondary">Volver</a>
                 <button type="submit" class="btn btn-primary btn-outline-light">
-                    Iniciar sesión
+                    Crear y entrar
                 </button>
             </div>
         </form>
     </div>
 </div>
 
-<div id="carrusel" class="row">
-    <div class="col-md-7 col-sm-12 offset-md-2">
-        <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="../css/imagenes/slider1.jpg" class="imagen_carrusel d-block w-100 carousel-fade " alt="Libro abierto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Lee</h5>
-                        <p>tus propios libros online.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="../css/imagenes/slider2.jpg" class="imagen_carrusel d-block w-100 carousel-fade " alt="Gato asomando en una estantería de libros">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Descubre</h5>
-                        <p>nuevos libros y géneros.</p>
-                    </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="../css/imagenes/slider3.jpg" class="imagen_carrusel d-block w-100 carousel-fade " alt="Manos agarradas con una biblioteca de fondo">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Conecta</h5>
-                        <p>con personas con tus mismos gustos.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-</div>
 <?php
 require_once "../include/script.php";
 ?>
