@@ -28,17 +28,17 @@ require_once "../include/cabecera_login.php";
                 <label class="form-label" for="login">
                     Nombre de usuario
                 </label>
-                <input type="text" id="login" name="login" class="form-control" placeholder="Nombre" />
+                <input type="text" id="login" name="login" class="form-control" placeholder="" />
             </div>
             <div class="mb-3">
                 <label class="form-label" for="pwd">
                     Contraseña
                 </label>
-                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Contraseña" />
+                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="" />
             </div>
             <div class="mb-3 text-center">
                 <a href="crearCuenta.php" class="btn btn-secondary">Crear cuenta</a>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary btn-outline-light">
                     Iniciar sesión
                 </button>
             </div>

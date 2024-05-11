@@ -1,6 +1,7 @@
 body{
-    background-color: antiquewhite;
+
     margin-top: 100px;
+    background-color: rgb(252, 241, 227);
 }
 
 
@@ -24,4 +25,26 @@ p{
 
 #carrusel{
     padding-top: 60px;
+}
+
+.imagen_carrusel{
+    border-radius: 55px;
+}
+
+.btn-primary{
+    background-color: #83604c;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.btn-secondary{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.btn-primary:hover{
+    color: white;
+    background-color: #684837;
+}
+
+.form-label{
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
