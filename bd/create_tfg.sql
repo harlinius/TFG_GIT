@@ -31,7 +31,6 @@ create table usuario (
 id_usuario int primary key auto_increment unique,
 nombre_completo varchar (300) not null,
 usuario varchar (50) not null,
-correo varchar (200) not null,
 contrasena varchar (500) not null,
 admin int not null default 0
 );
