@@ -9,12 +9,12 @@ require_once "../include/cabecera_login.php";
 ?>
 
 <div id="bloque_form" class="row">
-    <div class="col-md-4 col-sm-12 offset-md-2">
+    <div class="col-lg-4 col-md-12 col-sm-12 offset-md-2">
         <p>Bienvenido a</p>
         <h1>Read&Meet</h1>
         <p id="autor">By María Gil Martín</p>
     </div>
-    <div class="col-md-3 col-sm-12 ">
+    <div class="col-lg-3 col-md-8 col-sm-12 offset-lg-0 offset-md-2 ">
         <form action="doLogin.php" method="POST" class="row">
             <?php
             if (isset($_SESSION['error-login'])) :  ?>
@@ -45,10 +45,10 @@ require_once "../include/cabecera_login.php";
         </form>
     </div>
 </div>
-
+<p></p>
 <div id="carrusel" class="row">
-    <div class="col-md-7 col-sm-12 offset-md-2">
-        <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
+    <div class="col-lg-7 col-md-7 col-sm-12 offset-md-2">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
