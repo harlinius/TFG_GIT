@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../css/estilo_login_crear.css">
     <title><?= $tituloPagina ?></title>
-    <link rel="icon" href="../css/icono_tab.png">
+    <link rel="icon" href="../css/imagenes/icono_tab.png">
 </head>
 
 <body>

@@ -35,6 +35,8 @@ contrasena varchar (500) not null,
 admin int not null default 0
 );
 
+insert into usuario (nombre_completo,usuario,contrasena) values ("Maria Gil", "maria","263bce650e68ab4e23f28263760b9fa5");
+
 create table publicacion(
 id_publicacion int primary key auto_increment unique,
 tipo_publicacion int not null,

@@ -10,7 +10,7 @@ $usuario = Usuario::cargaLogin($usuario_post);
 if ($usuario) {
     if (password_verify($contrasena_post, $usuario->contrasena_post)) {
         $_SESSION['usuario'] = $usuario;
-        header('Location: index.php');
+        header('Location: home.php');
         die();
     }
 }
