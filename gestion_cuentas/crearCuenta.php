@@ -68,7 +68,7 @@ require_once "../include/cabecera_registro.php";
             </br>
             <div class="col-md-12 text-center">
                 <a href="login.php" class="btn btn-secondary">Volver</a>
-                <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                <button type="submit" class="btn btn-primary btn-outline-light">Crear cuenta</button>
             </div>
         </form>
     </div>
