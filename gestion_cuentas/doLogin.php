@@ -8,9 +8,14 @@ $contrasena_post = $_POST['contrasena'];
 $usuario = Usuario::cargaLogin($usuario_post);
 
 if ($usuario) {
-    if (password_verify($contrasena_post, $usuario->contrasena_post)) {
+    /*if (password_verify($contrasena_post, $usuario->contrasena)) {
         $_SESSION['usuario'] = $usuario;
-        header('Location: home.php');
+        header('Location: ../paginas_principales/home.php');
+        die();
+    }*/
+    if ($usuario->contrasena == $contrasena_post){
+        $_SESSION['usuario'] = $usuario;
+        header('Location: ../paginas_principales/home.php');
         die();
     }
 }

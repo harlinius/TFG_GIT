@@ -12,5 +12,17 @@ else {
 }
 
 $tituloPagina = "Read&Meet | Home";
-include __DIR__.'../include/cabecera_home.php';
+
+if ($usuario->administrador == 1){
+    require_once '../include/cabecera_home_admin.php';
+}
+else{
+    require_once '../include/cabecera_home_usuario.php';
+}
 ?>
+
+<?php 
+echo $usuario->administrador;
+?>
+
+<a class="dropdown-item" href="../gestion_cuentas/logout.php">Cerrar sesión</a>

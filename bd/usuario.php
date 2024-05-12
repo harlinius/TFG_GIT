@@ -6,6 +6,7 @@ class Usuario {
     public $nombre_completo;
     public $usuario;
     public $contrasena;
+    public $administrador;
 
     public function insertar() {
         $bd = abrirBD();
