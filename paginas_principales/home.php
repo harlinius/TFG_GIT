@@ -22,7 +22,7 @@ else{
 ?>
 
 <?php 
-echo $usuario->administrador;
+    echo $usuario->administrador;
 ?>
 
 <a class="dropdown-item" href="../gestion_cuentas/logout.php">Cerrar sesión</a>

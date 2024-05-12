@@ -34,7 +34,7 @@ contrasena varchar (500) not null,
 administrador int not null default 0
 );
 
-insert into usuario (nombre_completo,usuario,contrasena,administrador) values ("Administrador", "admin","admin",1);
+insert into usuario (nombre_completo,usuario,contrasena,administrador) values ("Administrador", "admin","admin","1");
 insert into usuario (nombre_completo,usuario,contrasena) values ("Maria Gil", "maria","maria");
 
 create table publicacion(
@@ -82,3 +82,5 @@ fecha date not null,
 foreign key (id_usuario) references usuario (id_usuario),
 foreign key (id_publicacion) references publicacion (id_publicacion)
 );
+
+select * from usuario;
