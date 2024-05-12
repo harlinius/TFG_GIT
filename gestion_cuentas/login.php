@@ -25,16 +25,16 @@ require_once "../include/cabecera_login.php";
                 unset($_SESSION['error-login']);
             endif; ?>
             <div class="mb-3">
-                <label class="form-label" for="login">
+                <label class="form-label" for="usuario">
                     Nombre de usuario
                 </label>
-                <input type="text" id="login" name="login" class="form-control" placeholder="" />
+                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="" />
             </div>
             <div class="mb-3">
-                <label class="form-label" for="pwd">
+                <label class="form-label" for="contrasena">
                     Contraseña
                 </label>
-                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="" />
+                <input type="password" id="contrasena" name="contrasena" class="form-control" placeholder="" />
             </div>
             <div class="mb-3 text-center">
                 <a href="crearCuenta.php" class="btn btn-secondary">Crear cuenta</a>
@@ -91,6 +91,9 @@ require_once "../include/cabecera_login.php";
 <?php
 require_once "../include/script.php";
 ?>
+
+
+
 <?php
 require_once "../include/pie_login.php";
 ?>
