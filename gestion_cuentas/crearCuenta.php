@@ -45,6 +45,7 @@ require_once "../include/cabecera_registro.php";
                     <?= e($errores['nombre_completo']) ?><!-- lo que pone cuando es invalid -->
                 </div>
             <?php endif; ?>
+
             <label class="form-label" for="usuario">
                 Nombre de usuario
             </label>
@@ -55,6 +56,9 @@ require_once "../include/cabecera_registro.php";
                     <?= e($errores['usuario']) ?>
                 </div>
             <?php endif; ?>
+            <div class="alert alert-danger alert-dismissible fade show d-none" role="alert" id="error-duplicado">
+                Ya existe alguien con este usuario
+            </div>
             <label class="form-label" for="contrasena">
                 Contraseña
             </label>
@@ -78,6 +82,29 @@ require_once "../include/cabecera_registro.php";
 <?php
 require_once "../include/script.php";
 ?>
+
+<script>
+    const txtusuario = document.getElementById("usuario");
+    const error = document.getElementById("error-duplicado");
+
+    txtusuario.addEventListener("change", function() {
+        let formData = new FormData();
+        formData.append("usuario", txtusuario.value);
+        fetch("validarLogin.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.text())
+            .then(msg => {
+                if (msg == "DUPLICADO") {
+                    error.classList.remove("d-none");
+                } else {
+                    error.classList.add("d-none");
+                }
+            });
+    });
+</script>
+
 <?php
 require_once "../include/pie_login.php";
 ?>
