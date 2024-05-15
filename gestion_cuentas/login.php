@@ -4,6 +4,11 @@ require_once '../lib/funciones.php';
 require_once '../bd/bd.php';
 session_start();
 
+if (isset($_SESSION['usuario'])) {
+    header('Location: ../paginas_principales/home.php');
+    die();
+}
+
 $tituloPagina = "Read&Meet | Login";
 require_once "../include/cabecera_login.php";
 ?>

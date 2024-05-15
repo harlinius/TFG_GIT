@@ -15,6 +15,13 @@ if (isset($_SESSION['errores'])) { // si hay errores
     $usuario = new Usuario();
 }
 
+if (isset($_SESSION['usuario'])) {
+    header('Location: home.php');
+    die();
+}
+
+
+
 $tituloPagina = "Read&Meet | Registro";
 require_once "../include/cabecera_registro.php";
 ?>
