@@ -1,6 +1,6 @@
 body{
     margin-top: 50px;
-    background-color: #fcf1e3;
+    background-color: rgb(252, 241, 227);
 }
 
 #autor{
@@ -10,7 +10,7 @@ body{
 
 h1{
     margin-top: 25px;
-    color: #83604c;
+    color: rgb(131, 96, 76);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
 }

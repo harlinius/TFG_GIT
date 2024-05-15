@@ -26,3 +26,11 @@ else{
 ?>
 
 <a class="dropdown-item" href="../gestion_cuentas/logout.php">Cerrar sesión</a>
+
+<?php
+require_once "../include/script.php";
+?>
+
+<?php
+require_once "../include/pie_normal.php";
+?>
