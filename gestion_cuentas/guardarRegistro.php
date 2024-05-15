@@ -30,7 +30,7 @@ if (isset($_POST['usuario'])) {
         $_SESSION['errores'] = $errores;
         $_SESSION['datos'] = $usuario;
         header("Location: crearCuenta.php");
-    } else { //si no, pasa al index (mis contactos)
+    } else { //si no, pasa a la home
         $usuario->insertar();
         $_SESSION['usuario'] = $usuario;
         header('Location: ../paginas_principales/home.php');
