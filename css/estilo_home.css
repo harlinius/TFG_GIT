@@ -1,3 +1,6 @@
-.navbar-custom{
+.navbar-brand{
+padding-left: 10px;
    color: rgb(131, 96, 76);
+   font-style: italic;
+   font-family: Georgia, 'Times New Roman', Times, serif;
 }
