@@ -31,10 +31,11 @@ id_usuario int primary key auto_increment unique,
 nombre_completo varchar (300) not null,
 usuario varchar (50) not null,
 contrasena varchar (500) not null,
-administrador int not null default 0
+administrador int not null default 0,
+foto_perfil varchar(500) DEFAULT NULL
 );
 
-insert into usuario (nombre_completo,usuario,contrasena,administrador) values ("Administrador", "admin","admin","1");
+insert into usuario (nombre_completo,usuario,contrasena,administrador,foto_perfil) values ("Administrador", "admin","admin","1","1_admin.jpg");
 insert into usuario (nombre_completo,usuario,contrasena) values ("Maria Gil", "maria","maria");
 
 create table publicacion(

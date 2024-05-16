@@ -1,14 +1,32 @@
 <?php
 require_once 'bd.php';
 
-class Usuario {
+class Usuario
+{
     public $id_usuario;
     public $nombre_completo;
     public $usuario;
     public $contrasena;
     public $administrador;
+    public $foto_perfil;
 
-    public function insertar() {
+    public function getRutaFoto()
+    {
+        return '../imagenes_perfil/' . $this->id_usuario . '_' . $this->foto_perfil;
+    }
+
+    public static function getRutaFotoArray($fila) //para array
+    {
+        return '../imagenes_perfil/' . $fila['id_usuario'] . '_' . $fila['foto_perfil'];
+    }
+
+    public static function getRutaFotoObjeto($fila) //para objeto
+    {
+        return '../imagenes_perfil/' . $fila->id_usuario . '_' . $fila->foto_perfil;
+    }
+
+    public function insertar()
+    {
         $bd = abrirBD();
         $st = $bd->prepare("INSERT INTO usuario
                 (nombre_completo,usuario,contrasena) 
@@ -16,21 +34,24 @@ class Usuario {
         if ($st === FALSE) {
             die("Error SQL: " . $bd->error);
         }
-        $st->bind_param("sss", 
-                $this->nombre_completo, 
-                $this->usuario, 
-                $this->contrasena);
+        $st->bind_param(
+            "sss",
+            $this->nombre_completo,
+            $this->usuario,
+            $this->contrasena
+        );
         $res = $st->execute();
         if ($res === FALSE) {
             die("Error de ejecución: " . $bd->error);
         }
         $this->id_usuario = $bd->insert_id;
-        
+
         $st->close();
         $bd->close();
     }
 
-    public static function cargaLogin($usuario) {
+    public static function cargaLogin($usuario)
+    {
         $bd = abrirBD();
         $st = $bd->prepare("SELECT * FROM usuario
                 WHERE usuario=?");
@@ -55,7 +76,7 @@ class Usuario {
         $bd = abrirBD();
 
         $st = $bd->prepare("UPDATE  usuario
-        SET nombre_completo=?,usuario=?,contrasena=? where id_usuario=?");
+        SET nombre_completo=?,usuario=?,contrasena=?,foto_perfil=? where id_usuario=?");
 
         if ($st === FALSE) {
             die("ERROR SQL: " . $bd->error);
@@ -66,6 +87,7 @@ class Usuario {
             $this->nombre_completo,
             $this->usuario,
             $this->contrasena,
+            $this->foto_perfil,
             $this->id_usuario
         );
 
@@ -74,7 +96,6 @@ class Usuario {
         if ($res === FALSE) {
             die("ERROR de ejecucion: " . $bd->error);
         }
-
         $st->close();
         $bd->close();
     }

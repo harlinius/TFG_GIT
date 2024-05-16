@@ -85,9 +85,7 @@
                             <li class="nav-item">
                                 <a class="dropdown-item" href="../gestion_cuentas/logout.php">Cerrar sesión</a>
                             </li>
-
                         </ul>
-
                     </li>
                 </ul>
             </div>
