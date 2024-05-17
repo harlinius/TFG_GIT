@@ -10,6 +10,7 @@ class Libro
     public $fecha_publicacion;
     public $autor;
     public $media_valoraciones;
+    public $paginas;
 
     public function getRutaFoto()
     {
@@ -23,13 +24,13 @@ class Libro
 
     public static function getRutaFotoObjeto($fila) //para objeto
     {
-        return '../portadas_libros/' . $fila->id_libro.'.jpg';
+        return '../portadas_libros/' . $fila->id_libro .'.jpg';
     }
 
     public static function listadolibros()
     {
         $bd = abrirBD();
-        $st = $bd->prepare("select * from libros");
+        $st = $bd->prepare("select * from libro");
 
         if ($st === FALSE) {
             die("ERROR SQL: " . $bd->error);

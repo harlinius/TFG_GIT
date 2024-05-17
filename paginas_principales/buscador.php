@@ -14,6 +14,8 @@ if (isset($_SESSION['usuario'])) {
 $tituloPagina = "Read&Meet | Buscar";
 $activoBuscador = 'active';
 $HojaCSS = "../css/estilo_buscador.css";
+$libros = Libro::listadolibros();
+
 if ($usuario->administrador == 1) {
     require_once '../include/cabecera_home_admin.php';
 } else {
@@ -25,15 +27,15 @@ if ($usuario->administrador == 1) {
         <input class="input" name="text" type="text" placeholder="¿Buscas una nueva aventura?">
     </div>
     <?php foreach ($libros as $l) : ?>
-        <div class="col-lg-3 col-md-6">
-            <div href="#" class="card">
-                <img class="img-cover" src="<?= e(Contenido::getRutaFotoAssoc($c)) ?>">
+        <div class="bloque_tarjetas_libros col-lg-3 col-md-6">
+            <div href="#" class="tarjeta_libro card">
+                <img class="img_portada img-cover" src="<?= e(Libro::getRutaFotoArray($l)) ?>">
                 <div class="card-body">
                     <h5 class="card-title">
                         <?= e($l['titulo']) ?>
                     </h5>
                     <p class="card-text">
-                        <?= e($l['titulo']) ?>
+                        <?= e($l['autor']) ?>
                     </p>
                 </div>
             </div>
