@@ -11,8 +11,8 @@ else {
     die();
 }
 
-$tituloPagina = "Read&Meet | Home";
-$activoHome = 'active';
+$tituloPagina = "Read&Meet | Buscar";
+$activoBuscador = 'active';
 
 if ($usuario->administrador == 1){
     require_once '../include/cabecera_home_admin.php';
@@ -21,6 +21,8 @@ else{
     require_once '../include/cabecera_home_usuario.php';
 }
 ?>
+
+
 
 
 

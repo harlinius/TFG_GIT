@@ -12,17 +12,17 @@ class Usuario
 
     public function getRutaFoto()
     {
-        return '../imagenes_perfil/' . $this->id_usuario . '_' . $this->foto_perfil;
+        return '../imagenes_perfil/' . $this->foto_perfil;
     }
 
     public static function getRutaFotoArray($fila) //para array
     {
-        return '../imagenes_perfil/' . $fila['id_usuario'] . '_' . $fila['foto_perfil'];
+        return '../imagenes_perfil/' . $fila['foto_perfil'];
     }
 
     public static function getRutaFotoObjeto($fila) //para objeto
     {
-        return '../imagenes_perfil/' . $fila->id_usuario . '_' . $fila->foto_perfil;
+        return '../imagenes_perfil/' . $fila->foto_perfil;
     }
 
     public function insertar()

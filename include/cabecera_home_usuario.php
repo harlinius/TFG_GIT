@@ -1,3 +1,8 @@
+<?php
+require_once "../bd/bd.php";
+require_once "../bd/usuario.php";
+?>
+
 <!doctype html>
 <html>
 <!-- cabecera del login -->
@@ -10,8 +15,8 @@
     <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="../css/estilo_home.css">
     <title><?= $tituloPagina ?></title>
+    <link rel="stylesheet" href="../css/estilo_home.css">
     <link rel="icon" href="../css/imagenes/icono_tab.png">
 </head>
 
@@ -57,28 +62,27 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link <?= $activoBuscador ?>" href="buscador.php" title="Buscador">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-bookshelf" viewBox="0 0 20 20">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                            Buscador
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link <?= $activoEspacioLectura ?>" href="lectura.php" title="Espacio de lectura">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-book-half" viewBox="0 0 20 20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-bookshelf" viewBox="0 0 20 20">
                                 <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" />
                             </svg>
                             Lectura privada
                         </a>
                     </li>
+
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link <?= $activoAdmin ?>" href="miPerfil.php" title="Mi perfil">
-                            <?= e($usuario->nombre_completo) ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 20 20">
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?= $activoEditarPerfil ?>" href="editarCuenta.php" title="Editar mi cuenta">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 20 20">
-                                <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0" />
-                            </svg>
+                        <a class="nav-link <?= $activoPerfil ?>" href="miPerfil.php" title="Mi perfil">
+                            <img id="imagen_perfil_nav" src="<?= Usuario::getRutaFotoObjeto($usuario) ?>" width="45" height="45">
                         </a>
                     </li>
                     <li class="nav-item">
@@ -94,4 +98,5 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="cuerpo_home">
+        <div class="container">

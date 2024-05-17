@@ -7,12 +7,19 @@ create table libro (
 id_libro int primary key auto_increment unique,
 titulo varchar (300) not null,
 portada varchar (500) not null,
-descripcion text not null,
+sinopsis text not null,
 fecha_publicacion date not null,
 autor varchar (300) not null,
-media_valoraciones double,
+media_valoraciones double default 0,
 check(media_valoraciones <=5)
 );
+
+insert into libro (titulo,portada,sinopsis,fecha_publicacion,autor) values ("El imperio final (Nacidos de la Bruma)","1.jpg",
+"Las brumas gobiernan la noche. El lord Legislador domina el mundo. En otros tiempos, un héroe se alzó para salvar la humanidad. 
+Fracasó. Desde entonces, el mundo es un erial de ceniza y niebla gobernado por un emperador inmortal conocido como el lord Legislador. 
+Pero la esperanza perdura. Una nueva revuelta cobra forma cimentándose en la treta definitiva: la astucia de un brillante genio del crimen y la determinación de una heroína insólita, 
+una joven ladrona callejera que deberá aprender a controlar el poder de los nacidos de la bruma.","2006-7-17","Brandon Sanderson");
+
 
 create table genero (
 id_genero int primary key auto_increment unique,
@@ -35,7 +42,7 @@ administrador int not null default 0,
 foto_perfil varchar(500) DEFAULT NULL
 );
 
-insert into usuario (nombre_completo,usuario,contrasena,administrador,foto_perfil) values ("Administrador", "admin","admin","1","1_admin.jpg");
+insert into usuario (nombre_completo,usuario,contrasena,administrador,foto_perfil) values ("Administrador", "admin","admin","1","admin.jpg");
 insert into usuario (nombre_completo,usuario,contrasena) values ("Maria Gil", "maria","maria");
 
 create table publicacion(
@@ -48,6 +55,7 @@ id_libro int not null,
 FOREIGN KEY (id_libro) REFERENCES libro(id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
+
 
 create table seguidores (
 seguidor int not null,
