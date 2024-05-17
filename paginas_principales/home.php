@@ -13,6 +13,7 @@ else {
 
 $tituloPagina = "Read&Meet | Home";
 $activoHome = 'active';
+$HojaCSS = "../css/estilo_home.css";
 
 if ($usuario->administrador == 1){
     require_once '../include/cabecera_home_admin.php';

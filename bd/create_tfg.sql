@@ -20,6 +20,7 @@ Fracasó. Desde entonces, el mundo es un erial de ceniza y niebla gobernado por 
 Pero la esperanza perdura. Una nueva revuelta cobra forma cimentándose en la treta definitiva: la astucia de un brillante genio del crimen y la determinación de una heroína insólita, 
 una joven ladrona callejera que deberá aprender a controlar el poder de los nacidos de la bruma.","2006-7-17","Brandon Sanderson");
 
+select * from libro;
 
 create table genero (
 id_genero int primary key auto_increment unique,
@@ -43,7 +44,7 @@ foto_perfil varchar(500) DEFAULT NULL
 );
 
 insert into usuario (nombre_completo,usuario,contrasena,administrador,foto_perfil) values ("Administrador", "admin","admin","1","admin.jpg");
-insert into usuario (nombre_completo,usuario,contrasena) values ("Maria Gil", "maria","maria");
+insert into usuario (nombre_completo,usuario,contrasena,foto_perfil) values ("Maria Gil", "maria","maria","maria.jpg");
 
 create table publicacion(
 id_publicacion int primary key auto_increment unique,
