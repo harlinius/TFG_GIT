@@ -161,9 +161,9 @@ li:hover::after {
 .book:hover .cover {
    -webkit-transition: all 0.5s;
    transition: all 0.5s;
-   -webkit-transform: rotatey(-80deg);
-   -ms-transform: rotatey(-80deg);
-   transform: rotatey(-80deg);
+   -webkit-transform: rotatey(-85deg);
+   -ms-transform: rotatey(-85deg);
+   transform: rotatey(-85deg);
 }
 
 .titulo_libro {
@@ -173,7 +173,6 @@ li:hover::after {
    font-size: 17px;
    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
 
 .autor_libro {
    width: 220px;
