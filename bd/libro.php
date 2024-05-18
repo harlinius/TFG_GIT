@@ -50,4 +50,33 @@ class Libro
         return $libros;
     }
 
+    public static function busca_por_titulo($titulo){
+        $titulo = "%".$titulo."%";
+        $bd = abrirBD();
+        $st = $bd->prepare("select * from libro where titulo like (?)");
+
+        if ($st === FALSE) {
+            die("ERROR SQL: " . $bd->error);
+        }
+
+        $st->bind_param(
+            "s",
+            $titulo
+        );
+
+        $ok = $st->execute();
+        if ($ok === false) {
+            die("ERROR: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $libros = [];
+        while ($libro = $res->fetch_assoc()) {
+            $libros[] = $libro;
+        }
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $libros;
+    }
+
 }
