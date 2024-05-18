@@ -109,7 +109,7 @@ li:hover::after {
 
 
 .book {
-   margin-left: 40px;
+   margin-left: 80px;
    margin-top: 40px;
    position: relative;
    border-radius: 5px;
@@ -167,6 +167,8 @@ li:hover::after {
 }
 
 .titulo_libro {
+   width: 220px;
+   
    padding-left: 25px;
    font-size: 17px;
    font-family: Georgia, 'Times New Roman', Times, serif;
@@ -174,6 +176,7 @@ li:hover::after {
 
 
 .autor_libro {
+   width: 220px;
    padding-left: 25px;
    font-size: 15px;
    font-family: Georgia, 'Times New Roman', Times, serif;
@@ -187,7 +190,7 @@ li:hover::after {
 }
 
 .button {
-   margin-left: 25px;
+   margin-left: 28px;
    line-height: 1;
    text-decoration: none;
    display: inline-flex;
@@ -211,7 +214,7 @@ li:hover::after {
    width: 25px;
    height: 25px;
    position: relative;
-   color: var(--clr);
+   color: rgb(131, 96, 76);
    background-color: #fff;
    border-radius: 50%;
    display: grid;
