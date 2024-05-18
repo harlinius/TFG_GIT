@@ -24,20 +24,16 @@ if ($usuario->administrador == 1) {
 ?>
 <div id="bloque_busqueda" class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <input class="input" name="text" type="text" placeholder="¿Buscas una nueva aventura?">
+        <input class="input" id="buscador" name="text" type="text" placeholder="¿Buscas una nueva aventura?">
     </div>
     <?php foreach ($libros as $l) : ?>
-        <div class="bloque_tarjetas_libros col-lg-3 col-md-6">
-            <div href="#" class="tarjeta_libro card">
-                <img class="img_portada img-cover" src="<?= e(Libro::getRutaFotoArray($l)) ?>">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <?= e($l['titulo']) ?>
-                    </h5>
-                    <p class="card-text">
-                        <?= e($l['autor']) ?>
-                    </p>
-                </div>
+        <div class="book">
+            <p class="titulo_libro">
+                <?= e($l['titulo']) ?>
+            </p>
+            <p class="autor_libro"><?= e($l['autor']) ?></p>
+            <div class="cover">
+                <img class="img_portada" src="<?= e(Libro::getRutaFotoArray($l)) ?>">
             </div>
         </div>
     <?php endforeach; ?>
@@ -45,7 +41,26 @@ if ($usuario->administrador == 1) {
 <?php
 require_once "../include/script.php";
 ?>
+<script>
+    const buscador = document.getElementById("buscador");
 
+    buscador.addEventListener("change", function() {
+        let formData = new FormData();
+        formData.append("buscador", buscador.value);
+        fetch("buscaLibros.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(libros => {
+                if (libros!=empty) {
+                    
+                } else {
+                    //hacer que se vea un mensaje con "No hay resultados de tu búsqueda" o algo asi
+                }
+            });
+    });
+</script>
 <?php
 require_once "../include/pie_normal.php";
 ?>

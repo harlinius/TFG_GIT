@@ -102,32 +102,79 @@ li:hover::after {
 }
 
 .img_portada {
-   border-radius: 17px;
-}
-
-.card {
    width: 100%;
    height: 100%;
-   background: rgba(217, 217, 217, 0.58);
-   border: 1px solid white;
-   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
-   backdrop-filter: blur(6px);
-   border-radius: 17px;
+   border-radius: 10px;
+}
+
+
+.book {
+   margin-left: 40px;
+   margin-top: 40px;
+   position: relative;
+   border-radius: 10px;
+   width: 220px;
+   height: 300px;
+   background-color: rgb(255, 255, 255);
+   -webkit-box-shadow: 1px 1px 8px #000;
+   box-shadow: 1px 1px 8px #5e5e5e;
+   -webkit-transform: preserve-3d;
+   -ms-transform: preserve-3d;
+   transform: preserve-3d;
+   -webkit-perspective: 2000px;
+   perspective: 2000px;
+   display: flex;
+   flex-direction: column; /* Add this line */
+   align-items: center;
+   justify-content: center;
+   color: #000;
+   text-align: center;
+   padding: 20px; /* Adjust padding if necessary */
+}
+ 
+ .cover {
+   top: 0;
+   position: absolute;
+   background-color: rgb(255, 255, 255);
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
    cursor: pointer;
+   -webkit-transition: all 0.5s;
    transition: all 0.5s;
-   user-select: none;
-   color: black;
-}
-
-.card:hover {
-   border: 1px solid black;
-   transform: scale(1.05);
-}
-
-.card:active {
-   transform: scale(0.95) rotateZ(1.7deg);
-}
-
-.card-title{
+   -webkit-transform-origin: 0;
+   -ms-transform-origin: 0;
+   transform-origin: 0;
+   -webkit-box-shadow: 1px 1px 12px #a5a5a5;
+   box-shadow: 1px 1px 12px #a5a5a5;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+ }
+ 
+ .book:hover .cover {
+   -webkit-transition: all 0.5s;
+   transition: all 0.5s;
+   -webkit-transform: rotatey(-80deg);
+   -ms-transform: rotatey(-80deg);
+   transform: rotatey(-80deg);
+ }
+ 
+ .titulo_libro {
+   padding-left: 25px;
+   font-size: 20px;
    font-family: Georgia, 'Times New Roman', Times, serif;
-}
+ }
+
+  
+ .autor_libro {
+   padding-left: 25px;
+   font-size: 15px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+ }
