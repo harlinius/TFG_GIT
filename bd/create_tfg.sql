@@ -48,7 +48,7 @@ La segunda es el asesino, un homicida que llora siempre que mata. La tercera es 
 Por último está el alto príncipe, un guerrero que mira al pasado mientras languidece su sed de guerra.
 El mundo puede cambiar. La potenciación y el uso de las esquirlas pueden aparecer de nuevo, la magia de los días pasados puede volver a ser nuestra. Esas cuatro personas son la clave.
 Una de ellas nos redimirá. Y una de ellas nos destruirá.","2010-8-31","Brandon Sanderson",1200);
-select * from libro where titulo like ("%bruma%");
+select * from libro;
 
 create table usuario (
 id_usuario int primary key auto_increment unique,
