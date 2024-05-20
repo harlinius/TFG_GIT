@@ -161,9 +161,9 @@ li:hover::after {
 .book:hover .cover {
    -webkit-transition: all 0.5s;
    transition: all 0.5s;
-   -webkit-transform: rotatey(-85deg);
-   -ms-transform: rotatey(-85deg);
-   transform: rotatey(-85deg);
+   -webkit-transform: rotatey(-82deg);
+   -ms-transform: rotatey(-82deg);
+   transform: rotatey(-82deg);
 }
 
 .titulo_libro {

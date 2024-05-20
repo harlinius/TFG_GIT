@@ -11,6 +11,10 @@ if (isset($_SESSION['usuario'])) {
     die();
 }
 
+if (isset($_GET['id'])) {
+    $libro = Libro::cargaLibroId($_GET['id']);
+}
+
 $tituloPagina = "Read&Meet | Buscar";
 $HojaCSS = "../css/estilo_libro.css";
 
@@ -19,4 +23,14 @@ if ($usuario->administrador == 1) {
 } else {
     require_once '../include/cabecera_home_usuario.php';
 }
+?>
+
+
+
+<?php
+require_once "../include/script.php";
+?>
+
+<?php
+require_once "../include/pie_normal.php";
 ?>

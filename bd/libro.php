@@ -14,17 +14,17 @@ class Libro
 
     public function getRutaFoto()
     {
-        return '../portadas_libros/' . $this->id_libro .'.jpg';
+        return '../portadas_libros/' . $this->id_libro . '.jpg';
     }
 
     public static function getRutaFotoArray($fila) //para array
     {
-        return '../portadas_libros/' . $fila['id_libro'].'.jpg';
+        return '../portadas_libros/' . $fila['id_libro'] . '.jpg';
     }
 
     public static function getRutaFotoObjeto($fila) //para objeto
     {
-        return '../portadas_libros/' . $fila->id_libro .'.jpg';
+        return '../portadas_libros/' . $fila->id_libro . '.jpg';
     }
 
     public static function listadolibros()
@@ -50,8 +50,9 @@ class Libro
         return $libros;
     }
 
-    public static function busca_por_titulo($titulo){
-        $titulo = "%".$titulo."%";
+    public static function busca_por_titulo($titulo)
+    {
+        $titulo = "%" . $titulo . "%";
         $bd = abrirBD();
         $st = $bd->prepare("select * from libro where titulo like (?)");
 
@@ -79,4 +80,24 @@ class Libro
         return $libros;
     }
 
+    public static function cargaLibroId($id_libro)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare("SELECT * FROM libro
+                WHERE id_libro=?");
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param("i", $id_libro);
+        $ok = $st->execute();
+        if ($ok === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $libro = $res->fetch_object('Libro');
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $libro;
+    }
 }
