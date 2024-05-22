@@ -62,10 +62,23 @@ foto_perfil varchar(500) DEFAULT NULL
 insert into usuario (nombre_completo,usuario,contrasena,administrador,foto_perfil) values ("Administrador", "admin","admin","1","admin.jpg");
 insert into usuario (nombre_completo,usuario,contrasena,foto_perfil) values ("Maria Gil", "maria","maria","maria.jpg");
 
+create table biblioteca (
+id_usuario int not null,
+progreso int not null default 0,
+valoracion int,
+estado varchar (500) not null, #Pendiente, leyendo, acabado
+id_libro int not null,
+foreign key (id_libro) references libro (id_libro),
+foreign key (id_usuario) references usuario (id_usuario)
+);
+
+insert into biblioteca (id_usuario,progreso,estado,id_libro) values (1,0,"Pendiente",1);
+
+select * from biblioteca;
+
 create table publicacion(
 id_publicacion int primary key auto_increment unique,
 tipo_publicacion int not null,
-texto_publicacion text not null,
 id_usuario int not null,
 fecha date not null,
 id_libro int not null,
@@ -81,16 +94,9 @@ foreign key (seguidor) references usuario (id_usuario),
 foreign key (seguido) references usuario (id_usuario)
 );
 
-create table biblioteca (
-id_usuario int not null,
-progreso int not null default 0,
-valoracion int,
-estado boolean default false,
-fecha_actualizado date not null,
-id_libro int not null,
-foreign key (id_libro) references libro (id_libro),
-foreign key (id_usuario) references usuario (id_usuario)
-);
+
+
+
 
 create table likes (
 id_publicacion int not null,

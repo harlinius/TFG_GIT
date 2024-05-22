@@ -100,4 +100,6 @@ class Libro
         $bd->close();
         return $libro;
     }
+
+    
 }
