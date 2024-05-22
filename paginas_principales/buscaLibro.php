@@ -1,8 +1,6 @@
 <?php
 require_once '../bd/libro.php';
 
-
-
 if (isset($_POST['buscador'])) {
     $titulo = $_POST['buscador'];
     $libros_coinciden = Libro::busca_por_titulo($titulo);

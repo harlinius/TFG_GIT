@@ -76,6 +76,7 @@ insert into biblioteca (id_usuario,progreso,estado,id_libro) values (1,0,"Pendie
 
 select * from biblioteca;
 
+
 create table publicacion(
 id_publicacion int primary key auto_increment unique,
 tipo_publicacion int not null,

@@ -32,7 +32,7 @@ class Biblioteca
 
     }
 
-    public function insertar_en_biblioteca($libro,$usuario)
+    public static function insertar_en_biblioteca($libro,$usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare('INSERT INTO biblioteca
