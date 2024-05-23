@@ -148,3 +148,19 @@ li:hover::after {
 .pendiente:hover{
   color: rgb(255, 222, 32);
 }
+
+.anadir_leyendo{
+  color: #94cbff;
+}
+
+.anadir_leyendo:hover{
+  color: rgb(65, 154, 255);
+}
+
+.anadir_acabado{
+  color: #d392ff;
+}
+
+.anadir_acabado:hover{
+  color: #965fbb;
+}
