@@ -79,7 +79,7 @@ select * from biblioteca;
 
 create table publicacion(
 id_publicacion int primary key auto_increment unique,
-tipo_publicacion int not null,
+tipo_publicacion int not null, #Anadir, Leer, Acabar, Valorar
 id_usuario int not null,
 fecha date not null,
 id_libro int not null,
@@ -102,14 +102,5 @@ foreign key (id_usuario) references usuario (id_usuario),
 foreign key (id_publicacion) references publicacion (id_publicacion)
 );
 
-create table comentario (
-id_comentario int primary key auto_increment unique,
-id_usuario int not null,
-id_publicacion int not null,
-texto text not null,
-fecha date not null,
-foreign key (id_usuario) references usuario (id_usuario),
-foreign key (id_publicacion) references publicacion (id_publicacion)
-);
 
 select * from usuario;
