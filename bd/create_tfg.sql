@@ -95,10 +95,6 @@ foreign key (seguidor) references usuario (id_usuario),
 foreign key (seguido) references usuario (id_usuario)
 );
 
-
-
-
-
 create table likes (
 id_publicacion int not null,
 id_usuario int not null,

@@ -14,7 +14,7 @@ if (isset($_SESSION['usuario'])) {
 
 if (isset($_GET['id_libro'])) {
     $libro = Libro::cargaLibroId($_GET['id_libro']);
-    Biblioteca::insertar_en_biblioteca_pendiente($libro,$usuario);
+    Biblioteca::borrar_biblioteca($libro,$usuario);
     header('Location: ../paginas_principales/libro.php?id='. $_GET['id_libro']);
 }
 else{

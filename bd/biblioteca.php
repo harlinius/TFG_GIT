@@ -32,7 +32,7 @@ class Biblioteca
 
     }
 
-    public static function insertar_en_biblioteca($libro,$usuario)
+    public static function insertar_en_biblioteca_pendiente($libro,$usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare('INSERT INTO biblioteca
@@ -44,6 +44,70 @@ class Biblioteca
             "ii",
             $usuario->id_usuario,
             $libro->id_libro
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $st->close();
+        $bd->close();
+    }
+
+    public static function insertar_en_biblioteca_leyendo($libro,$usuario)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('INSERT INTO biblioteca
+                (id_usuario,progreso,estado,id_libro) values (?,0,"Leyendo",?)');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "ii",
+            $usuario->id_usuario,
+            $libro->id_libro
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $st->close();
+        $bd->close();
+    }
+
+    public static function insertar_en_biblioteca_acabado($libro,$usuario)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('INSERT INTO biblioteca
+                (id_usuario,progreso,estado,id_libro) values (?,?,"Acabado",?)');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "iii",
+            $usuario->id_usuario,
+            $libro->paginas,
+            $libro->id_libro
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $st->close();
+        $bd->close();
+    }
+
+    public static function borrar_biblioteca($libro,$usuario)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('delete from biblioteca
+                where id_libro=? and id_usuario=?');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "ii",
+            $libro->id_libro,
+            $usuario->id_usuario
         );
         $res = $st->execute();
         if ($res === FALSE) {
