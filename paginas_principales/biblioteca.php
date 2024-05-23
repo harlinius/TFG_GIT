@@ -7,8 +7,7 @@ session_start();
 
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
-}
-else {
+} else {
     header('Location: ../gestion_cuentas/login.php');
     die();
 }
@@ -18,35 +17,35 @@ $activoBiblioteca = 'active';
 $HojaCSS = "../css/estilo_biblioteca.css";
 $bibliotecas = Biblioteca::biblioteca_usuario($usuario);
 
-if ($usuario->administrador == 1){
+if ($usuario->administrador == 1) {
     require_once '../include/cabecera_home_admin.php';
-}
-else{
+} else {
     require_once '../include/cabecera_home_usuario.php';
 }
 ?>
 
-<table class="table table-hover table-responsive-sm">
-    <thead>
-        <tr>
-            <th>Portada</th>
-            <th>Titulo</th>
-            <th>Autor</th>
-            <th>Estado</th>
-            <th>Progreso</th>
-            <th>Valoración</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($bibliotecas as $biblioteca) : 
-                $libro = Libro::cargaLibroId($biblioteca['id_libro']); ?>
+<div class=" table-responsive-md">
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <td><?php echo '<img class="img_portada_biblioteca" src="../portadas_libros/'. Libro::getRutaFotoArray($biblioteca) .'">'?></td>
-                <td><?php echo e($libro->titulo) ?></td>
-                <td><?php echo e($libro->autor) ?></td>
-                <td><?php echo e($biblioteca['estado']) ?></td>
-                <td><?php echo e($biblioteca['progreso']) ?></td>
-                <td><?php echo e($biblioteca['valoracion']) /*?></td>
+                <th>Portada</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Estado</th>
+                <th>Progreso</th>
+                <th>Valoración</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($bibliotecas as $biblioteca) :
+                $libro = Libro::cargaLibroId($biblioteca['id_libro']); ?>
+                <tr>
+                    <td><?php echo '<img class="img_portada_biblioteca" src="../portadas_libros/' . Libro::getRutaFotoArray($biblioteca) . '">' ?></td>
+                    <td><?php echo e($libro->titulo) ?></td>
+                    <td><?php echo e($libro->autor) ?></td>
+                    <td><?php echo e($biblioteca['estado']) ?></td>
+                    <td><?php echo e($biblioteca['progreso']) ?></td>
+                    <td><?php echo e($biblioteca['valoracion']) /*?></td>
                 <td>
                     <?php if ($con['aprobado'] == 0) { ?>
                         <button class="btn btn-sm btn-primary botonAprobar" data-id="<?= $con['idAdquisicion'] ?>">
@@ -89,9 +88,11 @@ else{
                     </div>
                 </td> 
             </tr>
-                    <?php */; endforeach; ?>
-    </tbody>
-</table>
+                    <?php */;
+                    endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
 
 <?php
