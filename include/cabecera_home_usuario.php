@@ -21,7 +21,7 @@ require_once "../bd/usuario.php";
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-collapse-sm" style="background-color: rgb(252, 241, 227)">
+    <nav class="navbar navbar-expand-lg navbar-collapse-md" style="background-color: rgb(252, 241, 227)">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.php">
                 <img src="../css/imagenes/icono_tab.png" alt="" width="40" height="40" class="d-inline-block align-text-top">

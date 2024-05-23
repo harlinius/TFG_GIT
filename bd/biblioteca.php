@@ -11,7 +11,8 @@ class Biblioteca
     public $valoracion;
     public $estado;
 
-    public static function BuscaLibroEnBiblioteca($libro){
+    public static function BuscaLibroEnBiblioteca($libro)
+    {
         $bd = abrirBD();
         $st = $bd->prepare("SELECT * FROM biblioteca
                 WHERE id_libro=?");
@@ -29,10 +30,9 @@ class Biblioteca
         $st->close();
         $bd->close();
         return $biblioteca;
-
     }
 
-    public static function insertar_en_biblioteca_pendiente($libro,$usuario)
+    public static function insertar_en_biblioteca_pendiente($libro, $usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare('INSERT INTO biblioteca
@@ -53,7 +53,7 @@ class Biblioteca
         $bd->close();
     }
 
-    public static function insertar_en_biblioteca_leyendo($libro,$usuario)
+    public static function insertar_en_biblioteca_leyendo($libro, $usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare('INSERT INTO biblioteca
@@ -74,7 +74,7 @@ class Biblioteca
         $bd->close();
     }
 
-    public static function insertar_en_biblioteca_acabado($libro,$usuario)
+    public static function insertar_en_biblioteca_acabado($libro, $usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare('INSERT INTO biblioteca
@@ -96,7 +96,7 @@ class Biblioteca
         $bd->close();
     }
 
-    public static function borrar_biblioteca($libro,$usuario)
+    public static function borrar_biblioteca($libro, $usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare('delete from biblioteca
@@ -115,5 +115,30 @@ class Biblioteca
         }
         $st->close();
         $bd->close();
+    }
+
+    public static function biblioteca_usuario($usuario)
+    {
+
+        $bd = abrirBD();
+        $st = $bd->prepare("select * from biblioteca where id_usuario=?");
+
+        if ($st === FALSE) {
+            die("ERROR SQL: " . $bd->error);
+        }
+        $st->bind_param('i', $usuario->id_usuario);
+        $ok = $st->execute();
+        if ($ok === false) {
+            die("ERROR: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $biblioteca = [];
+        while ($libro = $res->fetch_assoc()) {
+            $biblioteca[] = $libro;
+        }
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $biblioteca;
     }
 }
