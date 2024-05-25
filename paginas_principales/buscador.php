@@ -22,6 +22,7 @@ if ($usuario->administrador == 1) {
     require_once '../include/cabecera_home_usuario.php';
 }
 ?>
+
 <div id="bloque_busqueda" class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
         <input class="input" id="buscador" name="text" type="text" placeholder="¿Buscas una nueva aventura?">

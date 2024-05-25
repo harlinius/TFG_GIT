@@ -78,8 +78,8 @@ select * from biblioteca;
 
 
 create table publicacion(
+texto varchar (600) not null,
 id_publicacion int primary key auto_increment unique,
-tipo_publicacion int not null, #Anadir, Leer, Acabar, Valorar
 id_usuario int not null,
 fecha date not null,
 id_libro int not null,

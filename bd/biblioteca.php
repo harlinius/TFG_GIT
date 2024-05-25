@@ -1,5 +1,3 @@
-
-
 <?php
 require_once 'bd.php';
 
@@ -121,7 +119,7 @@ class Biblioteca
     {
 
         $bd = abrirBD();
-        $st = $bd->prepare("select * from biblioteca where id_usuario=?");
+        $st = $bd->prepare("select * from biblioteca where id_usuario=? order by estado desc");
 
         if ($st === FALSE) {
             die("ERROR SQL: " . $bd->error);
