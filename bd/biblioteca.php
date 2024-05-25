@@ -115,6 +115,31 @@ class Biblioteca
         $bd->close();
     }
 
+    public static function biblioteca_usuario_filtrada($usuario, $estado)
+    {
+
+        $bd = abrirBD();
+        $st = $bd->prepare("select * from biblioteca where id_usuario=? and estado=? order by estado desc");
+
+        if ($st === FALSE) {
+            die("ERROR SQL: " . $bd->error);
+        }
+        $st->bind_param('is', $usuario->id_usuario, $estado);
+        $ok = $st->execute();
+        if ($ok === false) {
+            die("ERROR: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $biblioteca = [];
+        while ($libro = $res->fetch_assoc()) {
+            $biblioteca[] = $libro;
+        }
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $biblioteca;
+    }
+
     public static function biblioteca_usuario($usuario)
     {
 
