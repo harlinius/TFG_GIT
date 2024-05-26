@@ -9,7 +9,6 @@
    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
 .bi {
    padding-top: 5px;
    width: 55px;
@@ -156,11 +155,9 @@ li:hover::after {
    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.enlaces_biblioteca{
-   
-}
+.enlaces_biblioteca {}
 
-.enlaces_bib_div{
+.enlaces_bib_div {
    padding-top: 30px;
    padding-bottom: 30px;
 }
