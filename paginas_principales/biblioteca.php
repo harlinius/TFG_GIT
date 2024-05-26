@@ -19,8 +19,7 @@ $HojaCSS = "../css/estilo_biblioteca.css";
 
 if (isset($_GET["estado"])) {
     $bibliotecas = Biblioteca::biblioteca_usuario_filtrada($usuario, $_GET["estado"]);
-}
-else{
+} else {
     $bibliotecas = Biblioteca::biblioteca_usuario($usuario);
 }
 
