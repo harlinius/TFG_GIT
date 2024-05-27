@@ -72,7 +72,13 @@ foreign key (id_libro) references libro (id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
-select * from biblioteca;
+SELECT biblioteca.*
+FROM biblioteca
+JOIN libro ON biblioteca.id_libro = libro.id_libro
+WHERE biblioteca.id_usuario = ?
+ORDER BY libro.titulo ASC;
+
+update biblioteca set estado="Leyendo" where id_libro=1 and id_usuario=2;
 
 
 create table publicacion(

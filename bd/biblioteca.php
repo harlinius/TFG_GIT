@@ -9,7 +9,7 @@ class Biblioteca
     public $valoracion;
     public $estado;
 
-    public static function BuscaLibroEnBiblioteca($libro,$usuario)
+    public static function BuscaLibroEnBiblioteca($libro, $usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare("SELECT * FROM biblioteca
@@ -119,7 +119,7 @@ class Biblioteca
     {
 
         $bd = abrirBD();
-        $st = $bd->prepare("select * from biblioteca where id_usuario=? and estado=? order by estado desc");
+        $st = $bd->prepare("select * from biblioteca where id_usuario=? and estado=?");
 
         if ($st === FALSE) {
             die("ERROR SQL: " . $bd->error);
@@ -143,7 +143,8 @@ class Biblioteca
     public static function biblioteca_usuario($usuario)
     {
         $bd = abrirBD();
-        $st = $bd->prepare("select * from biblioteca where id_usuario=? order by estado desc");
+        $st = $bd->prepare('select biblioteca.* from biblioteca join libro on biblioteca.id_libro = libro.id_libro
+        where biblioteca.id_usuario = ? order by libro.titulo asc');
 
         if ($st === FALSE) {
             die("ERROR SQL: " . $bd->error);
@@ -164,7 +165,8 @@ class Biblioteca
         return $biblioteca;
     }
 
-    public static function empezar_a_leer($libro,$usuario){
+    public static function empezar_a_leer($libro, $usuario)
+    {
         $bd = abrirBD();
         $st = $bd->prepare('update biblioteca set estado="Leyendo" where id_libro=? and id_usuario=?;');
         if ($st === FALSE) {
@@ -179,6 +181,47 @@ class Biblioteca
         if ($res === FALSE) {
             die("Error de ejecución: " . $bd->error);
         }
+        $st->close();
+        $bd->close();
+    }
+
+    public static function actualizar_paginas($paginas, $libro, $usuario)
+    {
+
+        $bd = abrirBD();
+        $st = $bd->prepare('update biblioteca set progreso=? where id_libro=? and id_usuario=?;');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "iii",
+            $paginas,
+            $libro->id_libro,
+            $usuario->id_usuario,
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+
+        if ($paginas == $libro->paginas) {
+            $st = $bd->prepare('update biblioteca set estado="Acabado" where id_libro=? and id_usuario=?;');
+            if ($st === FALSE) {
+                die("Error SQL: " . $bd->error);
+            }
+
+            $st->bind_param(
+                "ii",
+                $libro->id_libro,
+                $usuario->id_usuario,
+            );
+
+            $res = $st->execute();
+            if ($res === FALSE) {
+                die("Error de ejecución: " . $bd->error);
+            }
+        }
+
         $st->close();
         $bd->close();
     }
