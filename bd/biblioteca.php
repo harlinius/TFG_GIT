@@ -142,7 +142,6 @@ class Biblioteca
 
     public static function biblioteca_usuario($usuario)
     {
-
         $bd = abrirBD();
         $st = $bd->prepare("select * from biblioteca where id_usuario=? order by estado desc");
 
@@ -163,5 +162,24 @@ class Biblioteca
         $st->close();
         $bd->close();
         return $biblioteca;
+    }
+
+    public static function empezar_a_leer($libro,$usuario){
+        $bd = abrirBD();
+        $st = $bd->prepare('update biblioteca set estado="Leyendo" where id_libro=? and id_usuario=?;');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "ii",
+            $libro->id_libro,
+            $usuario->id_usuario,
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $st->close();
+        $bd->close();
     }
 }

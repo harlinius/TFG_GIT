@@ -159,3 +159,39 @@ li:hover::after {
    padding-top: 30px;
    padding-bottom: 30px;
 }
+
+.boton_editar {
+   margin-top: 30px;
+   background-color: #83604c;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.boton_editar:hover {
+   color: white;
+   background-color: #684837;
+}
+
+.boton_empezar {
+   margin-top: 30px;
+
+   background-color: #45662a;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.boton_empezar:hover {
+   color: white;
+   background-color: #2f461c;
+}
+
+
+.boton_valorar {
+   margin-top: 30px;
+
+   background-color: #3f59ad;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.boton_valorar:hover {
+   color: white;
+   background-color: #203066;
+}
