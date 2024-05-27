@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
 
 $tituloPagina = "Read&Meet | $libro->titulo";
 $HojaCSS = "../css/estilo_libro.css";
-$esta_biblioteca = Biblioteca::BuscaLibroEnBiblioteca($libro);
+$esta_biblioteca = Biblioteca::BuscaLibroEnBiblioteca($libro, $usuario);
 
 if ($usuario->administrador == 1) {
     require_once '../include/cabecera_home_admin.php';

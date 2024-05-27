@@ -72,8 +72,6 @@ foreign key (id_libro) references libro (id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
-insert into biblioteca (id_usuario,progreso,estado,id_libro) values (1,0,"Pendiente",1);
-
 select * from biblioteca;
 
 

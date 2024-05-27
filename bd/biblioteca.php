@@ -9,15 +9,15 @@ class Biblioteca
     public $valoracion;
     public $estado;
 
-    public static function BuscaLibroEnBiblioteca($libro)
+    public static function BuscaLibroEnBiblioteca($libro,$usuario)
     {
         $bd = abrirBD();
         $st = $bd->prepare("SELECT * FROM biblioteca
-                WHERE id_libro=?");
+                WHERE id_libro=? and id_usuario=?");
         if ($st === FALSE) {
             die("Error SQL: " . $bd->error);
         }
-        $st->bind_param("i", $libro->id_libro);
+        $st->bind_param("ii", $libro->id_libro, $usuario->id_usuario);
         $ok = $st->execute();
         if ($ok === FALSE) {
             die("Error de ejecución: " . $bd->error);
