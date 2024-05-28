@@ -3,12 +3,12 @@ require_once 'bd.php';
 
 class Publicacion
 {
-   
+
     public $id_publicacion;
     public $texto;
     public $id_usuario;
     public $id_libro;
-    
+
     public static function insertar_publicacion($texto, $id_usuario, $id_libro)
     {
         $bd = abrirBD();
@@ -53,6 +53,28 @@ class Publicacion
         $bd->close();
     }
 
+    public static function todas_las_publicaciones()
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('select * from publicacion');
 
+        if ($st === FALSE) {
+            die("ERROR SQL: " . $bd->error);
+        }
 
+        $ok = $st->execute();
+        if ($ok === false) {
+            die("ERROR: " . $bd->error);
+        }
+        $res = $st->get_result();
+
+        $publicaciones = [];
+        while ($publicacion = $res->fetch_assoc()) {
+            $publicaciones[] = $publicacion;
+        }
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $publicaciones;
+    }
 }

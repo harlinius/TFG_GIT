@@ -1,5 +1,10 @@
 <?php
 require_once 'bd.php';
+require_once 'publicacion.php';
+require_once 'usuario.php';
+require_once 'libro.php';
+require_once 'biblioteca.php';
+require_once '../lib/funciones.php';
 
 class Biblioteca
 {
@@ -205,6 +210,8 @@ class Biblioteca
         }
 
         if ($paginas == $libro->paginas) {
+            $texto = $usuario->nombre_completo . " ha acabado:";
+            Publicacion::insertar_publicacion($texto, $usuario->id_usuario, $_GET['id_libro']);
             $st = $bd->prepare('update biblioteca set estado="Acabado" where id_libro=? and id_usuario=?;');
             if ($st === FALSE) {
                 die("Error SQL: " . $bd->error);

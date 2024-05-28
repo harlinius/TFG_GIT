@@ -72,7 +72,7 @@ foreign key (id_libro) references libro (id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
-select * from libro;
+select * from biblioteca;
 update biblioteca set estado="Leyendo" where id_libro=1 and id_usuario=2;
 
 SELECT AVG(valoracion) AS media_valoraciones
@@ -90,9 +90,7 @@ FOREIGN KEY (id_libro) REFERENCES libro(id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
-INSERT INTO publicacion
-                (texto,id_usuario,id_libro,fecha) 
-                VALUES ("?",1,1,now());
+select * from publicacion;
 
 create table seguidores (
 seguidor int not null,

@@ -3,6 +3,7 @@ require_once '../bd/usuario.php';
 require_once '../bd/libro.php';
 require_once '../bd/biblioteca.php';
 require_once '../lib/funciones.php';
+require_once '../bd/publicacion.php';
 session_start();
 
 if (isset($_SESSION['usuario'])) {

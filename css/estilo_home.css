@@ -70,3 +70,52 @@ li:hover::after {
    bottom: 6px;
    transition: all 0.5s ease;
 }
+
+.tarjeta {
+   border: 1px solid #ccc;
+   
+   border-radius: 8px;
+  
+   padding: 10px;
+  
+   margin-bottom: 10px;
+  
+}
+
+.informacion-usuario {
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
+   
+   position: relative;
+  
+}
+
+.informacion-usuario img {
+   margin-right: 10px;
+}
+
+.nombre-usuario {
+   font-weight: bold;
+   /* Texto en negrita */
+}
+
+.fecha-publicacion {
+   position: absolute;
+   top: 0;
+   right: 0;
+   font-size: 12px;
+   color: #777; 
+}
+
+.contenido-tarjeta {
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   /* Estilos para el contenido de la tarjeta, si es necesario */
+}
+
+.titulo-tarjeta {
+   font-size: 16px;
+   /* Tamaño de fuente del título */
+   color: #333;
+   /* Color del texto del título */
+}
