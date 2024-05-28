@@ -13,11 +13,17 @@ if (isset($_SESSION['usuario'])) {
 }
 
 if (isset($_GET['id_libro'])) {
+    if (!isset($_POST['rate'])){
+        $valoracion = 0;
+    }
+    else{
+        $valoracion = $_POST['rate'];
+    }
     $libro = Libro::cargaLibroId($_GET['id_libro']);
-    Biblioteca::insertar_en_biblioteca_acabado($libro,$usuario);
-    $texto = $usuario->nombre_completo . " ha acabado:";
+    Biblioteca::actualizar_valoracion($valoracion,$libro,$usuario);
+    $texto = $usuario->nombre_completo . " ha valorado:";
     Publicacion::insertar_publicacion($texto, $usuario->id_usuario, $_GET['id_libro']);
-    header('Location: ../paginas_principales/libro.php?id='. $_GET['id_libro']);
+    header('Location: ../paginas_principales/biblioteca.php');
 }
 else{
     echo "Acceso denegado. <a href='../gestion_cuentas/login.php' class='btn btn-secondary'>Volver</a>";

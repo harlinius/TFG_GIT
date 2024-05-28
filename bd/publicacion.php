@@ -9,26 +9,25 @@ class Publicacion
     public $id_usuario;
     public $id_libro;
     
-    public function insertar_publicacion()
+    public static function insertar_publicacion($texto, $id_usuario, $id_libro)
     {
         $bd = abrirBD();
         $st = $bd->prepare("INSERT INTO publicacion
-                (texto,id_usuario,id_libro) 
-                VALUES (?,?,?)");
+                (texto,id_usuario,id_libro,fecha) 
+                VALUES (?,?,?,now())");
         if ($st === FALSE) {
             die("Error SQL: " . $bd->error);
         }
         $st->bind_param(
             "sii",
-            $this->texto,
-            $this->id_usuario,
-            $this->id_libro
+            $texto,
+            $id_usuario,
+            $id_libro
         );
         $res = $st->execute();
         if ($res === FALSE) {
             die("Error de ejecución: " . $bd->error);
         }
-        $this->id_publicacion = $bd->insert_id;
 
         $st->close();
         $bd->close();

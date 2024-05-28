@@ -30,6 +30,7 @@ if ($usuario->administrador == 1) {
 <div id="bloque_libro" class="row">
     <div class="titulo_libro col-lg-12">
         <h1><?php echo "$libro->titulo" ?></h1>
+        <h4>Media de valoraciones: <?php echo Biblioteca::saca_media_valoracion($libro->id_libro) . ' <i class="bi bi-star-fill"></i>' ?></h4>
     </div>
     <div class="botones col-lg-12">
         <?php if (!isset($esta_biblioteca)) {

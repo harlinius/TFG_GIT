@@ -225,4 +225,61 @@ class Biblioteca
         $st->close();
         $bd->close();
     }
+
+    public static function actualizar_valoracion($valoracion, $libro, $usuario)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('update biblioteca set valoracion=? where id_libro=? and id_usuario=?;');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "iii",
+            $valoracion,
+            $libro->id_libro,
+            $usuario->id_usuario,
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+
+        $st->close();
+        $bd->close();
+    }
+
+    public static function saca_media_valoracion($id_libro)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare("SELECT AVG(valoracion) AS media_valoraciones FROM biblioteca WHERE id_libro = ? AND valoracion IS NOT NULL;");
+
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+
+        $st->bind_param("i", $id_libro);
+        $ok = $st->execute();
+
+        if ($ok === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+
+        $res = $st->get_result();
+        $media = null;
+
+        if ($row = $res->fetch_assoc()) {
+            $media = $row['media_valoraciones'];
+        }
+
+        $res->free();
+        $st->close();
+        $bd->close();
+
+        // Formatear la media a 1 decimal
+        if ($media !== null) {
+            $media = number_format((float)$media, 1, '.', '');
+        }
+
+        return $media;
+    }
 }
