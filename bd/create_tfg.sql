@@ -91,7 +91,7 @@ foreign key (id_usuario) references usuario (id_usuario)
 );
 
 select * from publicacion;
-select * from likes;
+
 
 create table seguidores (
 seguidor int not null,

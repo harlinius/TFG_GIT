@@ -33,7 +33,7 @@
  
  .cuerpo_home {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     /* Add your background pattern here */
     background-image: linear-gradient(#ffffff 1.1rem, #e7e7e7 1.2rem);
     background-size: 100% 1.2rem;
