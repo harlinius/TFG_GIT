@@ -24,7 +24,6 @@ else{
 ?>
 
 
-
 <?php
 require_once "../include/script.php";
 ?>
