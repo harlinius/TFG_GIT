@@ -52,4 +52,8 @@ class Likes
         $bd->close();
     }
 
+    public static function contarLikes($id_publicacion){
+        
+    }
+
 }

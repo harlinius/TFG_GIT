@@ -282,7 +282,7 @@ class Biblioteca
         $st->close();
         $bd->close();
 
-        // Formatear la media a 1 decimal
+        // formatea la media a 1 decimal
         if ($media !== null) {
             $media = number_format((float)$media, 1, '.', '');
         }

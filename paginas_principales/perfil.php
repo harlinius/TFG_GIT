@@ -13,7 +13,10 @@ if (isset($_SESSION['usuario'])) {
     die();
 }
 
-$tituloPagina = "Read&Meet | " . $usuario->usuario;
+$usuario_perfil = Usuario::cargaLogin($_GET['usuario']);
+
+$tituloPagina = "Read&Meet | " . $usuario_perfil->usuario;
+
 $activoPerfil = 'active';
 $HojaCSS = "../css/estilo_perfil.css";
 
@@ -22,6 +25,7 @@ if ($usuario->administrador == 1) {
 } else {
     require_once '../include/cabecera_home_usuario.php';
 }
+
 
 $todas_las_publicaciones = Publicacion::todas_las_publicaciones();
 
