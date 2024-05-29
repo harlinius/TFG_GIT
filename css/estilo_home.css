@@ -72,50 +72,52 @@ li:hover::after {
 }
 
 .tarjeta {
-   border: 1px solid #ccc;
-   
-   border-radius: 8px;
-  
-   padding: 10px;
-  
+   margin-top: 15px;
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 5px;
    margin-bottom: 10px;
-  
+   padding: 15px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   display: flex;
+   justify-content: space-between;
 }
 
 .informacion-usuario {
    display: flex;
    align-items: center;
    margin-bottom: 10px;
-   
-   position: relative;
-  
 }
 
 .informacion-usuario img {
+   border-radius: 50%;
    margin-right: 10px;
 }
 
 .nombre-usuario {
    font-weight: bold;
-   /* Texto en negrita */
+   margin-right: 15px;
 }
 
 .fecha-publicacion {
-   position: absolute;
-   top: 0;
-   right: 0;
-   font-size: 12px;
-   color: #777; 
+   color: #888;
+   font-size: 0.9em;
+   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .contenido-tarjeta {
-   font-family: Georgia, 'Times New Roman', Times, serif;
-   /* Estilos para el contenido de la tarjeta, si es necesario */
+   flex-grow: 1;
 }
 
 .titulo-tarjeta {
-   font-size: 16px;
-   /* Tamaño de fuente del título */
-   color: #333;
-   /* Color del texto del título */
+   margin: 0;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.imagen-portada {
+   margin-left: 15px;
+}
+
+.imagen-portada img {
+   border-radius: 5px;
 }

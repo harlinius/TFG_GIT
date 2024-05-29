@@ -28,24 +28,29 @@ $todas_las_publicaciones = Publicacion::todas_las_publicaciones();
 ?>
 
 <div id="resultados" class="row">
-    <?php foreach ($todas_las_publicaciones as $publicacion) : ?>
+    <?php foreach ($todas_las_publicaciones as $publicacion) :
+        $libro = Libro::cargaLibroId($publicacion['id_libro']); ?>
         <div class="tarjeta">
-            <div class="informacion-usuario">
-                <img id="imagen_perfil_nav" src="<?php echo Usuario::getRutaFotoObjeto($usuario) ?>" width="45" height="45">
-                <div class="nombre-usuario"><?php echo $usuario->nombre_completo ?></div>
-                <div class="fecha-publicacion"><?php echo $publicacion['fecha'] ?></div>
-            </div>
             <div class="contenido-tarjeta">
-                <p class="titulo-tarjeta"><?php echo $publicacion['texto'] ?></p>
+                <div class="informacion-usuario">
+                    <img id="imagen_perfil_nav" src="<?php echo Usuario::getRutaFotoObjeto($usuario) ?>" width="45" height="45">
+                    <div class="nombre-usuario"><?php echo $usuario->nombre_completo ?></div>
+                    <div class="fecha-publicacion"><?php echo formateaFecha($publicacion['fecha']) ?></div>
+                </div>
+                <p class="titulo-tarjeta"><?php echo $publicacion['texto'] . ' ' . $libro->titulo ?></p>
+            </div>
+            <div class="imagen-portada">
+                <img src="../portadas_libros/<?php echo Libro::getRutaFotoObjeto($libro)?>" width="100" height="150">
             </div>
         </div>
     <?php endforeach; ?>
+</div>
 
 
-    <?php
-    require_once "../include/script.php";
-    ?>
+<?php
+require_once "../include/script.php";
+?>
 
-    <?php
-    require_once "../include/pie_normal.php";
-    ?>
+<?php
+require_once "../include/pie_normal.php";
+?>

@@ -11,18 +11,20 @@ class Publicacion
 
     public static function insertar_publicacion($texto, $id_usuario, $id_libro)
     {
+        $fecha = date('Y-m-d H:i:s');
         $bd = abrirBD();
         $st = $bd->prepare("INSERT INTO publicacion
                 (texto,id_usuario,id_libro,fecha) 
-                VALUES (?,?,?,now())");
+                VALUES (?,?,?,?)");
         if ($st === FALSE) {
             die("Error SQL: " . $bd->error);
         }
         $st->bind_param(
-            "sii",
+            "siis",
             $texto,
             $id_usuario,
-            $id_libro
+            $id_libro,
+            $fecha
         );
         $res = $st->execute();
         if ($res === FALSE) {
