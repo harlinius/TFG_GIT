@@ -58,7 +58,7 @@ class Publicacion
     public static function todas_las_publicaciones()
     {
         $bd = abrirBD();
-        $st = $bd->prepare('select * from publicacion');
+        $st = $bd->prepare('select * from publicacion order by fecha desc');
 
         if ($st === FALSE) {
             die("ERROR SQL: " . $bd->error);

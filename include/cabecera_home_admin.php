@@ -89,7 +89,7 @@ require_once "../bd/usuario.php";
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link <?= $activoPerfil?>" href="miPerfil.php" title="Mi perfil">
+                        <a class="nav-link <?= $activoPerfil?>" href="perfil.php" title="Mi perfil">
                             <img id="imagen_perfil_nav" src="<?= Usuario::getRutaFotoObjeto($usuario) ?>" width="45" height="45">
                         </a>
                     </li>

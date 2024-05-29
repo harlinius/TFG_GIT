@@ -81,12 +81,13 @@ li:hover::after {
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    display: flex;
    justify-content: space-between;
+
 }
 
 .informacion-usuario {
    display: flex;
    align-items: center;
-   margin-bottom: 10px;
+   margin-bottom: 5px;
 }
 
 .informacion-usuario img {
@@ -97,21 +98,27 @@ li:hover::after {
 .nombre-usuario {
    font-weight: bold;
    margin-right: 15px;
+   font-size: 1.2em;
+   
 }
 
 .fecha-publicacion {
+   margin-top: 15px;
    color: #888;
    font-size: 0.9em;
    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .contenido-tarjeta {
+   margin-top: 20px;
    flex-grow: 1;
+   
 }
 
 .titulo-tarjeta {
    margin: 0;
    font-family: Georgia, 'Times New Roman', Times, serif;
+   font-style: italic;
 }
 
 .imagen-portada {

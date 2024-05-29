@@ -99,4 +99,25 @@ class Usuario
         $st->close();
         $bd->close();
     }
+
+    public static function cargaUsuarioId($id)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare("SELECT * FROM usuario
+                WHERE id_usuario=?");
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param("i", $id);
+        $ok = $st->execute();
+        if ($ok === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $usuario = $res->fetch_object('Usuario');
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $usuario;
+    }
 }

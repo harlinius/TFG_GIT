@@ -84,13 +84,14 @@ create table publicacion(
 texto varchar (600) not null,
 id_publicacion int primary key auto_increment unique,
 id_usuario int not null,
-fecha date not null,
+fecha datetime not null,
 id_libro int not null,
 FOREIGN KEY (id_libro) REFERENCES libro(id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
 select * from publicacion;
+select * from likes;
 
 create table seguidores (
 seguidor int not null,
