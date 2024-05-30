@@ -90,8 +90,6 @@ FOREIGN KEY (id_libro) REFERENCES libro(id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
-select * from publicacion;
-
 
 create table seguidores (
 seguidor int not null,
@@ -108,4 +106,5 @@ foreign key (id_publicacion) references publicacion (id_publicacion)
 );
 
 
-select * from usuario;
+select * from publicacion;
+select * from likes;
