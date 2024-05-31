@@ -79,4 +79,28 @@ class Publicacion
         $bd->close();
         return $publicaciones;
     }
+
+    public static function publicaciones_usuario($id_usuario)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('select * from publicacion where id_usuario = ?');
+
+        if ($st === FALSE) {
+            die("ERROR SQL: " . $bd->error);
+        }
+        $st->bind_param('i', $id_usuario);
+        $ok = $st->execute();
+        if ($ok === false) {
+            die("ERROR: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $publicaciones = [];
+        while ($publicacion = $res->fetch_assoc()) {
+            $publicaciones[] = $publicacion;
+        }
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $publicaciones;
+    }
 }

@@ -72,3 +72,117 @@ li:hover::after {
    bottom: 6px;
    transition: all 0.5s ease;
 }
+
+
+.perfil-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 30px;
+}
+
+.imagen {
+   margin-bottom: 20px;
+}
+
+.imagen_perfil {
+   width: 300px;
+   height: 300px;
+   border-radius: 50%;
+   object-fit: cover;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info_perfil h1 {
+   font-size: 28px;
+   margin-bottom: 10px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-weight: bold;
+}
+
+.info_perfil p {
+   font-size: 18px;
+   margin-bottom: 20px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.botones_seguir a {
+   margin-top: 15px;
+   margin-right: 10px;
+   /* add some space between the buttons */
+   font-size: 18px;
+
+   padding: 10px 20px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.botones_seguir a:last-child {
+   margin-right: 0;
+   /* remove margin from the last button */
+}
+
+.botones_seguir a:hover{
+   color:white;
+}
+
+.boton_seguir {
+   background-color: green;
+   border: 1px solid green;
+}
+
+.boton_seguir:hover {
+   background-color: darkgreen;
+   border-color: darkgreen;
+}
+
+.boton_dejar_de_seguir {
+   background-color: red;
+   border: 1px solid red;
+}
+
+.boton_dejar_de_seguir:hover {
+   background-color: darkred;
+   border-color: darkred;
+}
+
+.boton_editar {
+   background-color: gray;
+   border: 1px solid gray;
+}
+
+.boton_editar:hover {
+   background-color: rgb(73, 73, 73);
+   border-color: rgb(73,73,73);
+}
+
+@media (max-width: 768px) {
+   .info_perfil h1 {
+      font-size: 24px;
+   }
+
+   .imagen_perfil {
+      width: 250px;
+      height: 250px;
+   }
+
+   .botones_seguir a {
+      font-size: 16px;
+      padding: 8px 16px;
+   }
+}
+
+@media (max-width: 576px) {
+   .info_perfil h1 {
+      font-size: 20px;
+   }
+
+   .imagen_perfil {
+      width: 150px;
+      height: 150px;
+   }
+
+   .botones_seguir a {
+      font-size: 14px;
+      padding: 6px 12px;
+   }
+}
