@@ -72,13 +72,6 @@ foreign key (id_libro) references libro (id_libro),
 foreign key (id_usuario) references usuario (id_usuario)
 );
 
-select * from biblioteca;
-update biblioteca set estado="Leyendo" where id_libro=1 and id_usuario=2;
-
-SELECT AVG(valoracion) AS media_valoraciones
-FROM biblioteca
-WHERE id_libro = 1 AND valoracion IS NOT NULL;
-
 
 create table publicacion(
 texto varchar (600) not null,
@@ -104,7 +97,4 @@ id_usuario int not null,
 foreign key (id_usuario) references usuario (id_usuario),
 foreign key (id_publicacion) references publicacion (id_publicacion)
 );
-
-
-select * from publicacion;
-select * from likes;
+select * FROM publicacion p JOIN seguidores s ON p.id_usuario = s.id_seguido WHERE s.id_seguidor = [id_seguidor];

@@ -103,4 +103,30 @@ class Publicacion
         $bd->close();
         return $publicaciones;
     }
+
+    //
+    public static function publicaciones_seguidos($id_usuario)
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare('select * FROM publicacion p JOIN seguidores s ON p.id_usuario = s.id_seguido WHERE s.id_seguidor = ?;
+        ');
+
+        if ($st === FALSE) {
+            die("ERROR SQL: " . $bd->error);
+        }
+        $st->bind_param('i', $id_usuario);
+        $ok = $st->execute();
+        if ($ok === false) {
+            die("ERROR: " . $bd->error);
+        }
+        $res = $st->get_result();
+        $publicaciones = [];
+        while ($publicacion = $res->fetch_assoc()) {
+            $publicaciones[] = $publicacion;
+        }
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $publicaciones;
+    }
 }
