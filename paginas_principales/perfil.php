@@ -43,24 +43,23 @@ $publicaciones_usuario = Publicacion::publicaciones_usuario($usuario_perfil->id_
         <p><?php if ($usuario_perfil->administrador == 1) {
                 echo 'Administrador de Read&Meet';
             } ?></p>
+        <p><?php echo 'Seguidores: ' . Seguidores::seguidores_usuario($usuario_perfil->id_usuario)?></p>
     </div>
     <div class="botones_seguir">
         <?php if (Seguidores::comprobar_si_sigue($usuario->id_usuario, $usuario_perfil->id_usuario) == false && $usuario_perfil!= $usuario) {
-            echo '<a class="boton_seguir btn btn-primary btn-outline-light" href="../gestion_seguimiento/seguir.php?id_usuario=<?php echo $usuario_perfil->id_usuario?>">
+            echo '<a class="boton_seguir btn btn-primary btn-outline-light" href="../gestion_seguimiento/seguir.php?id_seguido='. $usuario_perfil->id_usuario .'">
                     Seguir
                 </a>';
         } else if ($usuario_perfil!= $usuario){
-            echo '<a class="boton_dejar_de_seguir btn btn-secondary btn-outline-light" href="../gestion_seguimiento/dejar_de_seguir.php?id_usuario=<?php echo $usuario_perfil->id_usuario?>">
+            echo '<a class="boton_dejar_de_seguir btn btn-secondary btn-outline-light" href="../gestion_seguimiento/dejar_de_seguir.php?id_seguido='. $usuario_perfil->id_usuario .'">
                     Dejar de seguir
                 </a>';
         }
-
         if ($usuario_perfil == $usuario) {
             echo '<a class="boton_editar btn btn-secondary btn-outline-light" href="../gestion_cuentas/editar_mi_cuenta">
                    Editar mi cuenta
                 </a>';
         }
-
         ?>
 
     </div>

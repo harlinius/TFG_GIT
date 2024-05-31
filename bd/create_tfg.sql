@@ -92,10 +92,10 @@ foreign key (id_usuario) references usuario (id_usuario)
 
 
 create table seguidores (
-seguidor int not null,
-seguido int not null,
-foreign key (seguidor) references usuario (id_usuario),
-foreign key (seguido) references usuario (id_usuario)
+id_seguidor int not null,
+id_seguido int not null,
+foreign key (id_seguidor) references usuario (id_usuario),
+foreign key (id_seguido) references usuario (id_usuario)
 );
 
 create table likes (

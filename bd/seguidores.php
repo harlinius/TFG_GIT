@@ -80,4 +80,28 @@ class Seguidores
             return false; //si no se siguen
         }
     }
+
+    public static function seguidores_usuario($id_usuario){
+        $bd = abrirBD();
+        $st = $bd->prepare("SELECT count(*) AS seguidores FROM seguidores WHERE id_seguido = ?");
+
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+
+        $st->bind_param("i", $id_usuario);
+        $ok = $st->execute();
+
+        if ($ok === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+
+        $res = $st->get_result();
+        $seguidores = $res->fetch_column();
+
+        $res->free();
+        $st->close();
+        $bd->close();
+        return $seguidores;
+    }
 }
