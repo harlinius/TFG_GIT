@@ -40,7 +40,7 @@ $todas_las_publicaciones = Publicacion::todas_las_publicaciones();
 
                                                             echo Usuario::getRutaFotoObjeto($usuario_publicacion) ?>" width="45" height="45">
                     </a>
-                    <div class="nombre-usuario"><?php echo $usuario->nombre_completo ?></div>
+                    <div class="nombre-usuario"><?php echo $usuario_publicacion->nombre_completo ?></div>
                 </div>
                 <p class="titulo-tarjeta"><?php echo $publicacion['texto'] . ' ' . $libro->titulo ?></p>
                 <div class="fecha-publicacion"><?php echo formateaFecha($publicacion['fecha']) ?></div>
