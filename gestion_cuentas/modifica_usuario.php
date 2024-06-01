@@ -31,8 +31,16 @@ $destino_foto = $usuario_sesion->foto_perfil; // Por defecto mantiene la foto ac
 
 if ($foto_perfil['error'] == UPLOAD_ERR_OK) {
     if (str_starts_with($foto_perfil['type'], 'image/')) {
-        $destino_foto = '../imagenes_perfil/' . $_POST['usuario'] . '.' . pathinfo($foto_perfil['name'], PATHINFO_EXTENSION);
-        move_uploaded_file($foto_perfil['tmp_name'], $destino_foto);
+        $nuevo_destino_foto = '../imagenes_perfil/' . $_POST['usuario'] . '.' . pathinfo($foto_perfil['name'], PATHINFO_EXTENSION);
+
+        // Eliminar la foto anterior si existe y es diferente de la predeterminada
+        if (file_exists($destino_foto) && $destino_foto !== '../imagenes_perfil/default.jpg') {
+            unlink($destino_foto);
+        }
+
+        // Mover la nueva foto
+        move_uploaded_file($foto_perfil['tmp_name'], $nuevo_destino_foto);
+        $destino_foto = $nuevo_destino_foto;
     } else {
         $errores['foto_perfil'] = 'La foto no es una imagen válida';
     }

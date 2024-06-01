@@ -121,8 +121,8 @@ li:hover::after {
    /* remove margin from the last button */
 }
 
-.botones_seguir a:hover{
-   color:white;
+.botones_seguir a:hover {
+   color: white;
 }
 
 .boton_seguir {
@@ -152,7 +152,7 @@ li:hover::after {
 
 .boton_editar:hover {
    background-color: rgb(73, 73, 73);
-   border-color: rgb(73,73,73);
+   border-color: rgb(73, 73, 73);
 }
 
 @media (max-width: 768px) {
@@ -185,4 +185,80 @@ li:hover::after {
       font-size: 14px;
       padding: 6px 12px;
    }
+}
+
+
+.tarjeta {
+   margin-top: 15px;
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   margin-bottom: 10px;
+   padding: 15px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   display: flex;
+   justify-content: space-between;
+
+}
+
+.informacion-usuario {
+   display: flex;
+   align-items: center;
+   margin-bottom: 5px;
+}
+
+.informacion-usuario img {
+   border-radius: 50%;
+   margin-right: 10px;
+}
+
+.nombre-usuario {
+   font-weight: bold;
+   margin-right: 15px;
+   font-size: 1.2em;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.fecha-publicacion {
+   margin-top: 15px;
+   color: #888;
+   font-size: 0.9em;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.contenido-tarjeta {
+   margin-top: 5px;
+   flex-grow: 1;
+
+}
+
+.titulo-tarjeta {
+   margin: 0;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-style: italic;
+}
+
+.imagen-portada {
+   margin-left: 15px;
+}
+
+.imagen-portada img {
+   border-radius: 5px;
+}
+
+.bi2 {
+   width: 30px;
+   height: 30px;
+}
+
+.corazones {
+   margin-top: 15px;
+   display: flex;
+   text-decoration: none;
+   color: red;
+}
+
+.numero_likes {
+   margin-left: 10px;
 }
