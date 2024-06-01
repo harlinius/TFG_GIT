@@ -9,8 +9,7 @@ session_start();
 
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
-}
-else {
+} else {
     header('Location: ../gestion_cuentas/login.php');
     die();
 }
@@ -19,10 +18,9 @@ $tituloPagina = "Read&Meet | Seguidos";
 $activoSeguidos = 'active';
 $HojaCSS = "../css/estilo_seguidos.css";
 
-if ($usuario->administrador == 1){
+if ($usuario->administrador == 1) {
     require_once '../include/cabecera_home_admin.php';
-}
-else{
+} else {
     require_once '../include/cabecera_home_usuario.php';
 }
 

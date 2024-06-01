@@ -16,7 +16,7 @@ if (isset($_SESSION['usuario'])) {
 if (isset($_GET['id_libro']) && isset($_POST['paginas_nuevo'])) {
     $libro = Libro::cargaLibroId($_GET['id_libro']);
     $paginas =$_POST['paginas_nuevo'];
-    $texto = $usuario->nombre_completo . " ha seguido:";
+    $texto = " ha seguido:";
     Publicacion::insertar_publicacion($texto, $usuario->id_usuario, $_GET['id_libro']);
     Biblioteca::actualizar_paginas($paginas,$libro,$usuario);
     header('Location: ../paginas_principales/biblioteca.php');

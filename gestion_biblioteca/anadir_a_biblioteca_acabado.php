@@ -16,7 +16,7 @@ if (isset($_SESSION['usuario'])) {
 if (isset($_GET['id_libro'])) {
     $libro = Libro::cargaLibroId($_GET['id_libro']);
     Biblioteca::insertar_en_biblioteca_acabado($libro,$usuario);
-    $texto = $usuario->nombre_completo . " ha acabado:";
+    $texto = " ha acabado:";
     Publicacion::insertar_publicacion($texto, $usuario->id_usuario, $_GET['id_libro']);
     header('Location: ../paginas_principales/libro.php?id='. $_GET['id_libro']);
 }

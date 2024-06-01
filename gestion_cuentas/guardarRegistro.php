@@ -9,6 +9,7 @@ if (isset($_POST['usuario'])) {
     $usuario->nombre_completo = $_POST['nombre_completo'];
     $usuario->usuario = $_POST['usuario'];
     $usuario->contrasena = $_POST['contrasena'];
+    $usuario->foto_perfil = 'default.jpg';
 
     $errores = []; //crea un array para los errores
     if ($usuario->nombre_completo == '') { //si está vacío

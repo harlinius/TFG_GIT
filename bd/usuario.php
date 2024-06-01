@@ -29,16 +29,17 @@ class Usuario
     {
         $bd = abrirBD();
         $st = $bd->prepare("INSERT INTO usuario
-                (nombre_completo,usuario,contrasena) 
-                VALUES (?,?,?)");
+                (nombre_completo,usuario,contrasena,foto_perfil) 
+                VALUES (?,?,?,?)");
         if ($st === FALSE) {
             die("Error SQL: " . $bd->error);
         }
         $st->bind_param(
-            "sss",
+            "ssss",
             $this->nombre_completo,
             $this->usuario,
-            $this->contrasena
+            $this->contrasena,
+            $this->foto_perfil
         );
         $res = $st->execute();
         if ($res === FALSE) {
@@ -83,7 +84,7 @@ class Usuario
         }
 
         $st->bind_param(
-            "sssi",
+            "ssssi",
             $this->nombre_completo,
             $this->usuario,
             $this->contrasena,

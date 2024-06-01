@@ -56,7 +56,7 @@ $publicaciones_usuario = Publicacion::publicaciones_usuario($usuario_perfil->id_
                 </a>';
         }
         if ($usuario_perfil == $usuario) {
-            echo '<a class="boton_editar btn btn-secondary btn-outline-light" href="../gestion_cuentas/editar_mi_cuenta">
+            echo '<a class="boton_editar btn btn-secondary btn-outline-light" href="../gestion_cuentas/editar_mi_cuenta.php">
                    Editar mi cuenta
                 </a>';
         }

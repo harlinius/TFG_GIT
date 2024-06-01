@@ -1,0 +1,93 @@
+.navbar-brand {
+    padding-left: 10px;
+    color: rgb(131, 96, 76);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav-link {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.bi {
+    padding-top: 5px;
+    width: 55px;
+    height: 55px;
+}
+
+#imagen_perfil_nav {
+    border-radius: 25px;
+    box-shadow: 0px 1px 2px rgb(131, 96, 76);
+    /* Añade sombra a la imagen */
+    width: 50px;
+    height: 50px;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.cuerpo_home {
+    width: 100%;
+    min-height: 100%;
+    max-height: fit-content;
+    /* Add your background pattern here */
+    background-image: linear-gradient(#ffffff 1.1rem, #e7e7e7 1.2rem);
+    background-size: 100% 1.2rem;
+}
+
+li {
+    position: relative;
+    list-style: none;
+    padding: 0 10px;
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(131, 96, 76);
+    height: 3px;
+    width: 0%;
+    left: 20px;
+    bottom: 6px;
+    transition: all 0.5s ease;
+}
+
+li:hover::after {
+    width: 85%;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(131, 96, 76);
+    height: 3px;
+    width: 85%;
+    left: 20px;
+    bottom: 6px;
+    transition: all 0.5s ease;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.btn_guardar {
+    margin-top: 30px;
+    background-color: #83604c;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+ 
+ .btn_guardar:hover {
+    color: white;
+    background-color: #684837;
+ }
+
+h1{
+    margin-top: 10px;
+ }
+ 

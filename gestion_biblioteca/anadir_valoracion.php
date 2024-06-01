@@ -22,7 +22,7 @@ if (isset($_GET['id_libro'])) {
     }
     $libro = Libro::cargaLibroId($_GET['id_libro']);
     Biblioteca::actualizar_valoracion($valoracion,$libro,$usuario);
-    $texto = $usuario->nombre_completo . " ha valorado:";
+    $texto = " ha valorado:";
     Publicacion::insertar_publicacion($texto, $usuario->id_usuario, $_GET['id_libro']);
     header('Location: ../paginas_principales/biblioteca.php');
 }
