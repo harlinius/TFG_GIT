@@ -139,7 +139,7 @@ $publicaciones_usuario = Publicacion::publicaciones_usuario($usuario_perfil->id_
     <div class="col-lg-12 col-md-12">
         <div class="row enlaces_bib_div">
             <div class="col-lg-12 col-md-12 mb-12 enlaces_biblioteca">
-                <a class="estado_libro_selector" href="perfil.php?usuario=<?php echo $usuario_perfil->usuario ?>">
+                <a class="estado_libro_selector" href="perfil.php?usuario=<?php echo $usuario_perfil->usuario ?>&ver=biblioteca">
                     Todo
                 </a>
                 <a class="estado_libro_selector" href="perfil.php?usuario=<?php echo $usuario_perfil->usuario ?>&ver=biblioteca&estado=Pendiente">
