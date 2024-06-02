@@ -7,7 +7,6 @@ class Libro
     public $titulo;
     public $portada;
     public $sinopsis;
-    public $fecha_publicacion;
     public $autor;
     public $media_valoraciones;
     public $paginas;
@@ -101,5 +100,50 @@ class Libro
         return $libro;
     }
 
-    
+    public function anade_libro()
+    {
+        $bd = abrirBD();
+        $st = $bd->prepare("INSERT INTO libro
+                (titulo,sinopsis,autor,paginas) 
+                VALUES (?,?,?,?)");
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "sssi",
+            $this->titulo,
+            $this->sinopsis,
+            $this->autor,
+            $this->paginas
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $this->id_libro = $bd->insert_id;
+
+        $st->close();
+        $bd->close();
+    }
+
+    public static function anade_portada($id_libro)
+    {
+        $ruta = $id_libro . '.jpg';
+        $bd = abrirBD();
+        $st = $bd->prepare('update libro set portada=? where id_libro=?');
+        if ($st === FALSE) {
+            die("Error SQL: " . $bd->error);
+        }
+        $st->bind_param(
+            "si",
+            $ruta,
+            $id_libro
+        );
+        $res = $st->execute();
+        if ($res === FALSE) {
+            die("Error de ejecución: " . $bd->error);
+        }
+        $st->close();
+        $bd->close();
+    }
 }
